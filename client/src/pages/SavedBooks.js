@@ -10,9 +10,11 @@ import { removeBookId } from '../utils/localStorage';
 
 // import { useParams } from 'react-router-dom';
 const SavedBooks = () => {
-  const { loading, data } = useQuery(GET_ME);
+  const { data, loading, error: e } = useQuery(GET_ME);
+  console.log(e);
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
   // const [getMe, { error }] = useQuery(GET_ME)
+  console.log(data);
   // use this to determine if useEffect() hook needs to run again
   const userData = data?.me || {};
   console.log(userData);
